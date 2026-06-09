@@ -1,0 +1,52 @@
+.carousel {
+  position: relative;
+}
+
+.carousel .slide img {
+  width: 100%;
+  object-fit: cover;
+
+  /* Amazon-like fade */
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 0)
+  );
+
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 0)
+  );
+}
+
+.hero_image {
+  position: absolute;
+  bottom: 0;
+
+  width: 100%;
+  height: 120px;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0),
+    white
+  );
+}
+
+.carousel .control-arrow,
+.carousel.carousel-slider .control-arrow {
+  opacity: 1;
+  height: 200px;
+}
+
+@media (max-width: 768px) {
+  .carousel .slide img {
+    min-height: 250px;
+    object-fit: cover;
+  }
+
+  .hero_image {
+    height: 80px;
+  }
+}
