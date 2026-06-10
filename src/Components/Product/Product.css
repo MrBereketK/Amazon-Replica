@@ -1,0 +1,24 @@
+.products__container {
+  max-width: 1400px;
+  margin: 40px auto;
+  padding: 0 80px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .products__container {
+    padding: 0 40px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .products__container {
+    padding: 0 20px;
+    grid-template-columns: 1fr;
+  }
+}
