@@ -1,19 +1,25 @@
 export const CategoryInfo = [
   {
-    title: "Backpacks",
-    image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png",
-  },
-  {
-    title: "T-Shirts",
+    title: "Electronics",
+    category: "electronics",
     image:
-      "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_t.png",
+      "https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Events/2026/Gaming_26/Fuji_Gaming_SingleImageCard_C._SY608_CB762596570_.jpg",
   },
   {
-    title: "Jackets",
+    title: "Jewelery",
+    category: "jewelery",
+    image:
+      "https://images.unsplash.com/photo-1602173574767-37ac01994b2a?auto=format&fit=crop&w=800&q=60",
+  },
+  {
+    title: "Men's Clothing",
+    category: "men's clothing",
     image: "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_t.png",
   },
   {
-    title: "Men's Fashion",
-    image: "https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_t.png",
+    title: "Women's Clothing",
+    category: "women's clothing",
+    image:
+      "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=60",
   },
 ];
