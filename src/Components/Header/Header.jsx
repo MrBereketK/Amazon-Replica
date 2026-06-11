@@ -1,5 +1,6 @@
 import React from "react";
 import "./Header.css";
+import { Link } from "react-router-dom";
 
 import {
   FaSearch,
@@ -19,7 +20,9 @@ function Header() {
       <header className="header">
         {/* LEFT */}
         <div className="header__left">
-          <img src={logo} alt="Amazon" className="header__logo" />
+          <Link to="/">
+            <img src={logo} alt="Amazon" className="header__logo" />
+          </Link>
 
           <div className="header__location">
             <FaMapMarkerAlt className="header__icon" />
@@ -55,24 +58,25 @@ function Header() {
             <FaCaretDown />
           </div>
 
-          <div className="header__option">
+          <Link to="/auth" className="header__option">
             <span>Hello, sign in</span>
             <span>Account & Lists</span>
-          </div>
+          </Link>
 
-          <div className="header__option">
+          <Link to="/orders" className="header__option">
             <span>Returns</span>
             <span>& Orders</span>
-          </div>
+          </Link>
 
-          <div className="header__cart">
+          <Link to="/cart" className="header__cart">
             <FaShoppingCart className="header__cartIcon" />
             <span className="header__cartCount">0</span>
             <span>Cart</span>
-          </div>
+          </Link>
         </div>
       </header>
-     <LowerHeader />
+
+      <LowerHeader />
     </>
   );
 }
