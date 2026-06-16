@@ -1,10 +1,165 @@
+/* =========================
+   MAIN LAYOUT
+========================= */
 .productDetail {
-  background-color: #eaeded;
-  padding: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 40px; /* was 60px */
 
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
+  padding: 30px 40px; /* reduced from 50px */
 
+  background-color: #fff;
   min-height: calc(100vh - 100px);
+
+  align-items: start;
+}
+
+/* =========================
+   LEFT - IMAGE
+========================= */
+.productDetail__image {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.productDetail__image img {
+  width: 100%;
+  max-width: 320px;   /* was 420px */
+  max-height: 380px;  /* was 500px */
+
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+/* =========================
+   RIGHT - INFO PANEL
+========================= */
+.productDetail__info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* was 14px */
+}
+
+.productDetail__info h1 {
+  font-size: 24px; /* was 30px */
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* =========================
+   RATING
+========================= */
+.productDetail__rating {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.productDetail__rating span {
+  color: #007185;
+}
+
+/* =========================
+   PRICE
+========================= */
+.productDetail__price {
+  font-size: 24px; /* was 28px */
+  font-weight: 700;
+}
+
+/* =========================
+   CATEGORY
+========================= */
+.productDetail__category {
+  color: #565959;
+  text-transform: capitalize;
+}
+
+/* =========================
+   DIVIDER
+========================= */
+.productDetail hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 10px 0;
+}
+
+/* =========================
+   DESCRIPTION
+========================= */
+.productDetail__description h3 {
+  margin-bottom: 10px;
+}
+
+.productDetail__description p {
+  line-height: 1.6; /* was 1.7 */
+  font-size: 14.5px;
+}
+
+/* =========================
+   BUY BUTTON (IMPROVED CTA)
+========================= */
+.productDetail__button {
+  margin-top: 16px;
+
+  width: 200px; /* was 220px */
+
+  padding: 12px 20px;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  background: #ffd814;
+  border: 1px solid #fcd200;
+  border-radius: 22px;
+
+  cursor: pointer;
+}
+
+.productDetail__button:hover {
+  background: #f7ca00;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.productDetail__button:active {
+  transform: scale(0.98);
+}
+
+/* =========================
+   TABLET
+========================= */
+@media (max-width: 900px) {
+  .productDetail {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 20px;
+  }
+
+  .productDetail__image img {
+    max-width: 260px;
+    max-height: 300px;
+  }
+
+  .productDetail__button {
+    width: 100%;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+@media (max-width: 480px) {
+  .productDetail__info h1 {
+    font-size: 22px;
+  }
+
+  .productDetail__price {
+    font-size: 24px;
+  }
+
+  .productDetail__button {
+    width: 100%;
+  }
 }

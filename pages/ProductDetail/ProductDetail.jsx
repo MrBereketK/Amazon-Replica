@@ -1,28 +1,37 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import Rating from "@mui/material/Rating";
 
 import Layout from "../../src/Components/Layout/Layout";
-import ProductCard from "../../src/Components/Product/ProductCard";
 import Loading from "../../src/Components/Loading/Loading";
+import CurrencyFormat from "../../src/Components/CurrencyFormat/CurrencyFormat";
 
 import { baseUrl } from "../../src/Api/endPoint";
 
-import "./ProductDetail.module.css";
+import styles from "./ProductDetail.module.css";
 
 const ProductDetail = () => {
   const { productId } = useParams();
-
   const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
+
     axios
       .get(`${baseUrl}/products/${productId}`)
-      .then((res) => setProduct(res.data))
-      .catch((err) => console.log(err));
+      .then((res) => {
+        setProduct(res.data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setLoading(false);
+      });
   }, [productId]);
 
-  if (!product) {
+  if (loading) {
     return (
       <Layout>
         <Loading message="Loading product..." />
@@ -30,27 +39,52 @@ const ProductDetail = () => {
     );
   }
 
+  if (!product) {
+    return (
+      <Layout>
+        <div style={{ padding: "40px" }}>Product not found.</div>
+      </Layout>
+    );
+  }
+
+  const { image, title, price, description, category, rating } = product;
+
   return (
     <Layout>
-      <div className="productDetail">
-        <div className="productDetail__left">
-          <ProductCard product={product} detailPage={true} />
+      <div className={styles.productDetail}>
+        {/* LEFT SIDE - IMAGE */}
+        <div className={styles.productDetail__image}>
+          <img src={image} alt={title} />
         </div>
 
-        <div className="productDetail__right">
-          {/* Reserved for future features */}
+        {/* RIGHT SIDE - INFO */}
+        <div className={styles.productDetail__info}>
+          <h1>{title}</h1>
 
-          <h3>Product Information</h3>
+          {/* Rating */}
+          <div className={styles.productDetail__rating}>
+            <Rating value={rating?.rate || 0} precision={0.1} readOnly />
+            <span>{rating?.count || 0} ratings</span>
+          </div>
 
-          <p>Later you can add:</p>
+          {/* Price */}
+          <div className={styles.productDetail__price}>
+            <CurrencyFormat amount={price} />
+          </div>
 
-          <ul>
-            <li>Delivery information</li>
-            <li>Stock availability</li>
-            <li>Quantity selector</li>
-            <li>Buy Now button</li>
-            <li>Related products</li>
-          </ul>
+          {/* Category */}
+          <p className={styles.productDetail__category}>Category: {category}</p>
+
+          <hr />
+
+          {/* Description */}
+          <div className={styles.productDetail__description}>
+            {/* <h3>About this item</h3> */}
+            <p>{description}</p>
+          </div>
+
+          {/* CTA BUTTON */}
+          <button className={styles.productDetail__button}>Add to Cart</button>
         </div>
       </div>
     </Layout>
