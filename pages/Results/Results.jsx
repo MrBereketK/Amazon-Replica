@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import ProductCard from "../../src/Components/Product/ProductCard";
 import classes from "./Results.module.css";
+import { baseUrl } from "../../src/Api/endPoint";
 
 const Results = () => {
   const [result, setResult] = useState([]);
@@ -11,7 +12,7 @@ const Results = () => {
 
   useEffect(() => {
     axios
-      .get(`https://fakestoreapi.com/products/category/${category}`)
+      .get(`${baseUrl}/products/category/${category}`)
       .then((res) => setResult(res.data))
       .catch((err) => console.log(err));
   }, [category]);

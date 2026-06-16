@@ -1,0 +1,31 @@
+.loading {
+  min-height: 60vh;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 20px;
+
+  padding: 40px;
+}
+
+.loading p {
+  color: #565959;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .loading {
+    min-height: 50vh;
+    gap: 15px;
+  }
+
+  .loading p {
+    font-size: 14px;
+  }
+}

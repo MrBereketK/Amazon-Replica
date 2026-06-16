@@ -1,16 +1,17 @@
-import React from 'react'
-import Rating from '@mui/material/Rating'
+import React from "react";
+import Rating from "@mui/material/Rating";
 import "./ProductCard.css";
-import CurrencyFormat from '../CurrencyFormat/CurrencyFormat';
+import CurrencyFormat from "../CurrencyFormat/CurrencyFormat";
+import { Link } from "react-router-dom";
 
+const ProductCard = ({ product, detailPage = false }) => {
+  const { image, title, id, rating, price } = product;
 
-const ProductCard = ({product}) => {
-    const {image, title, id, rating, price} = product;
   return (
-    <div className="product">
-      <a href="">
+    <div className={`product ${detailPage ? "product--detail" : ""}`}>
+      <Link to={`/products/${id}`}>
         <img src={image} alt={title} />
-      </a>
+      </Link>
 
       <div className="product__info">
         <h2>{title}</h2>
@@ -28,6 +29,6 @@ const ProductCard = ({product}) => {
       </div>
     </div>
   );
-}
+};
 
-export default ProductCard
+export default ProductCard;

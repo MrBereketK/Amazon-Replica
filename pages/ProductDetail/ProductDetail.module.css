@@ -1,0 +1,10 @@
+.productDetail {
+  background-color: #eaeded;
+  padding: 30px;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  min-height: calc(100vh - 100px);
+}
