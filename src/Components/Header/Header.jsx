@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Header.css";
 import { Link } from "react-router-dom";
 
@@ -13,8 +13,15 @@ import logo from "../../assets/amazone header logo.png";
 import flag from "../../assets/American Flag.png";
 
 import LowerHeader from "./LowerHeader.jsx";
+import { DataContext } from "../../Components/DataProvider/DataProvider.jsx";
 
 function Header() {
+  const { state, dispatch } = useContext(DataContext);
+
+  // safe access to basket
+  const basket = state?.basket || [];
+  // console.log(basket);
+
   return (
     <>
       <header className="header">
@@ -68,9 +75,10 @@ function Header() {
             <span>& Orders</span>
           </Link>
 
+          {/* CART */}
           <Link to="/cart" className="header__cart">
             <FaShoppingCart className="header__cartIcon" />
-            <span className="header__cartCount">0</span>
+            <span className="header__cartCount">{basket.length}</span>
             <span>Cart</span>
           </Link>
         </div>
