@@ -23,7 +23,7 @@ function Header() {
   // console.log(basket);
 
   return (
-    <>
+    <section className="header__container">
       <header className="header">
         {/* LEFT */}
         <div className="header__left">
@@ -85,7 +85,7 @@ function Header() {
       </header>
 
       <LowerHeader />
-    </>
+    </section>
   );
 }
 
