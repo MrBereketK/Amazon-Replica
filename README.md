@@ -8,6 +8,11 @@
 ![Stripe](https://img.shields.io/badge/Stripe-626CD9?style=for-the-badge&logo=Stripe&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2CA5E0?style=for-the-badge&logo=docker&logoColor=white)
 
+> [!IMPORTANT]
+> **Live Demo Notes:**
+> * **API Cold Start:** The backend is hosted on Render's free tier. If the backend hasn't received traffic in 15 minutes, it goes to sleep. **Please allow ~50 seconds for the server to wake up** when testing the Stripe checkout process!
+> * **Product Data:** This project fetches product data from the free `FakeStoreAPI`. If the homepage products fail to load, that API is likely experiencing temporary downtime.
+
 A fully functional, full-stack e-commerce application modeled after Amazon. Built with modern web technologies, this project features robust user authentication, a complete shopping cart system, real payment processing, and a scalable, Dockerized architecture.
 
 ## ✨ Key Features
