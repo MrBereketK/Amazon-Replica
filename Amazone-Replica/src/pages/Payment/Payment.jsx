@@ -48,9 +48,10 @@ const Payment = () => {
     setProcessing(true);
 
     try {
+      const backendUrl = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
       const response = await axios({
         method: "post",
-        url: `http://localhost:5000/payment/create?total=${Math.floor(subtotal * 100)}`,
+        url: `${backendUrl}/payment/create?total=${Math.floor(subtotal * 100)}`,
       });
 
       const clientSecret = response.data.clientSecret;
