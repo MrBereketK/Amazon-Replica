@@ -1,0 +1,27 @@
+.orders {
+  padding: 20px 40px;
+}
+
+.orders > h1 {
+  margin-bottom: 20px;
+  border-bottom: 1px solid lightgray;
+  padding-bottom: 15px;
+}
+
+.order__container {
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid lightgray;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.order__container > h2 {
+  margin-bottom: 15px;
+}
+
+.order__products {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}

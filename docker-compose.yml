@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./amazon-api
+    container_name: amazon-backend
+    ports:
+      - "5000:5000"
+    env_file:
+      - ./amazon-api/.env
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./Amazone-Replica
+    container_name: amazon-frontend
+    ports:
+      - "5173:80" # Map 5173 on your host to 80 on the container to match your current setup
+    depends_on:
+      - backend
+    restart: unless-stopped
