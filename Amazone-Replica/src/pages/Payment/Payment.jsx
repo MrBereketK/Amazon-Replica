@@ -124,9 +124,11 @@ const Payment = () => {
           </div>
 
           <div className="payment__content">
-            <div className="payment__cardPlaceholder">
+            <div className="payment__cardContainer">
               <form onSubmit={handleSubmit}>
-                <CardElement onChange={handleChange} />
+                <div className="payment__stripeInput">
+                  <CardElement onChange={handleChange} />
+                </div>
                 
                 <div className="payment__summary">
                   <h3>Order Summary</h3>

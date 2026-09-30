@@ -185,20 +185,44 @@
     flex-wrap: wrap;
     height: auto;
     padding: 10px;
+    justify-content: space-between;
+  }
+
+  .header__left {
+    order: 1;
+  }
+
+  .header__right {
+    order: 2;
+    margin-left: 0;
+    gap: 5px;
   }
 
   .header__search {
     order: 3;
     width: 100%;
+    flex-basis: 100%;
     margin-top: 10px;
   }
 
-  .header__right {
-    margin-left: auto;
+  .header__logo {
+    width: 70px;
+    margin-top: 5px;
   }
 
-  .header__logo {
-    width: 80px;
+  /* Hide Desktop-only elements on Mobile */
+  .header__language,
+  .header__right > a.header__option {
+    display: none;
+  }
+
+  /* Hide "Hello X" on mobile, just keep "Sign In / Sign Out" */
+  .header__option span:first-child {
+    display: none;
+  }
+
+  .header__option span:last-child {
+    font-size: 14px;
   }
 }
 
