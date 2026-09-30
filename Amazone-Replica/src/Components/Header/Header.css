@@ -178,10 +178,6 @@
   .header__location {
     display: none;
   }
-
-  .header__option {
-    display: none;
-  }
 }
 
 @media (max-width: 600px) {
