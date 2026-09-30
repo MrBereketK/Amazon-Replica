@@ -5,8 +5,10 @@ import { type } from "./actionType";
 //   user: null,
 // };
 
+const savedBasket = localStorage.getItem("basket");
+
 export const initialState = {
-  basket: [],
+  basket: savedBasket ? JSON.parse(savedBasket) : [],
   user: null,
   token: null,
 };

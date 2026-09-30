@@ -9,9 +9,9 @@ import {
   FaCaretDown,
 } from "react-icons/fa";
 
-// import { signOut } from "firebase/auth";
-// import { auth } from "../../Utility/firebase";
-import keycloak from "../../Utility/keycloak";
+import { signOut } from "firebase/auth";
+import { auth } from "../../Utility/firebase";
+// import keycloak from "../../Utility/keycloak";
 
 import logo from "../../assets/amazone header logo1.png";
 import flag from "../../assets/American Flag.png";
@@ -26,28 +26,28 @@ function Header() {
     state: { basket, user },
   } = useContext(DataContext);
 
-  // const handleAuthentication = async () => {
-  //   if (user) {
-  //     try {
-  //       await signOut(auth);
-  //       navigate("/");
-  //     } catch (err) {
-  //       console.log(err);
-  //     }
-  //   } else {
-  //     navigate("/auth");
-  //   }
-  // };
-
-  const handleAuthentication = () => {
+  const handleAuthentication = async () => {
     if (user) {
-      keycloak.logout({
-        redirectUri: window.location.origin,
-      });
+      try {
+        await signOut(auth);
+        navigate("/");
+      } catch (err) {
+        console.log(err);
+      }
     } else {
       navigate("/auth");
     }
   };
+
+  // const handleAuthentication = () => {
+  //   if (user) {
+  //     keycloak.logout({
+  //       redirectUri: window.location.origin,
+  //     });
+  //   } else {
+  //     navigate("/auth");
+  //   }
+  // };
 
   return (
     <section className="header__container">
@@ -100,8 +100,8 @@ function Header() {
           {/* AUTH */}
 
           <div className="header__option" onClick={handleAuthentication}>
-            {/* <span>Hello, {user ? user.email : "Guest"}</span> */}
-            <span> Hello, {user ? user.preferred_username : "Guest"}</span>
+            <span>Hello, {user ? user.email : "Guest"}</span>
+            {/* <span> Hello, {user ? user.preferred_username : "Guest"}</span> */}
             <span>{user ? "Sign Out" : "Sign In"}</span>
           </div>
 

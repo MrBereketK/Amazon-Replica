@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 
 import "./App.css";
@@ -9,6 +9,8 @@ import { type } from "./Utility/actionType";
 
 function App() {
   const { dispatch } = useContext(DataContext);
+  const [isAuthReady, setIsAuthReady] = useState(false);
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -22,10 +24,15 @@ function App() {
           payload: null,
         });
       }
+      setIsAuthReady(true);
     });
 
     return () => unsubscribe();
   }, [dispatch]);
+
+  if (!isAuthReady) {
+    return <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh" }}>Loading...</div>;
+  }
 
   return <Routing />;
 }
